@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Positioning Items</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Marvel&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1ff2ea641a.js" crossorigin="anonymous"></script>
+
+
+
+    <style>
+        /* fullsceen mode, ovewrite when in mobile */
+        .fullscreen {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            max-height: 960px;
+            overflow-y: hidden;
+        }
+
+        body {
+            margin: 0;
+            color: #454545;
+            background: #fff;
+            font-family: 'Courier New', 'Courier', monospace;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            display: block;
+            margin: 8px;
+        }
+
+        article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary {
+            display: block;
+        }
+        a {
+            background-color: transparent;
+        }
+
+        section > div:first-child {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding-left: 100px;
+        }
+
+        head {
+            display: none;
+        }
+
+        div, input, button, form, section {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .fullscreen .list_items {
+            margin-bottom: 24px;
+        }
+
+        .fullscreen .forsale {
+            position: relative;
+            z-index: 5;
+            float: left;
+            height: 100%;
+            width: 50%;
+
+            /*overflow-y: scroll;*/
+        }
+
+        .fullscreen .info {
+            display: flex;
+            justify-content: space-evenly;
+            flex-flow: column nowrap;
+            position: relative;
+            float: left;
+            height: 100%;
+            width: 50%;
+            padding: 30px;
+            background: rgb(236,236,236);
+        }
+
+
+        img {
+            object-fit: contain;
+        }
+
+        .logo {
+            font-family: 'Marvel', cursive;
+            font-size: 3em;
+            text-decoration: none;
+
+        }
+
+        .button {
+            display: block;
+            position: relative;
+            width: 240px;
+            height: 48px;
+            text-align: center;
+            font-weight: 700;
+            line-height: 48px;
+            text-decoration: none;
+            background: #fff;
+            border-radius: 24px;
+        }
+
+        .buttonText {
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .button:hover {
+            background-color: aliceblue;
+        }
+
+        .button::-moz-focus-inner, input::-moz-focus-inner {
+            border: 0;
+            padding: 0;
+        }
+
+        li {
+            line-height: 22px;
+            margin-bottom: 15px;
+        }
+
+        input {
+            line-height: normal;
+        }
+
+        input:focus {
+            border: 3px solid cadetblue;
+            width: auto;
+
+        }
+
+        a:link {
+            color: rgb(255, 255, 255); /* link color*/
+        }
+
+        a:visited {
+            color: white; /* click link */
+        }
+        a:active {
+            color: black; /* link active color */
+        }
+
+        ol.list_items{
+            margin: 10%;
+            padding: 20%;
+            list-style-type: decimal;
+            list-style-position: outside;
+            color: gray;
+            line-height: 1.6;
+            width: 40%;
+        }
+
+            .form [type=text] {
+            width: auto;
+            padding: 8px 10px;
+            margin: 0px 0;
+            box-sizing: border-box;
+            color: grey;
+            text-align: match-parent;
+            font-family: "Lucida Console", Courier, monospace;
+            background-color: white;
+            font-size: 16px;
+        }
+
+        .card{
+            position: relative;
+            width: 450px;
+            height: 450px;
+            border-radius: 2px;
+            overflow: hidden;
+            -webkit-box-shadow: 4px 8px 16px 0 rgba(69,69,69,0.1);
+            box-shadow: 4px 8px 16px 0 rgba(69,69,69,0.1);
+            margin-bottom: 30px;
+
+        }
+
+        .fab {
+            padding: 20px;
+            font-size: 30px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            position: fixed;
+            top: 50%;
+            right: 0;
+            z-index: 100;
+        }
+
+        .fab {
+            font-weight: 400;
+        }
+
+        .fab:hover {
+            opacity: 0.7;
+        }
+
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+
+        .fullscreen .scrollDown {
+            position: absolute;
+            z-index: 20;
+            left: 0;
+            bottom: 22px;
+            width: 100%;
+            text-align: center;
+            font-weight: 700;
+            color: #454545;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+          .scrollDown::after {
+            display: block;
+            content: '';
+            width: 12px;
+            height: 12px;
+            border-left: 2px solid #454545;
+            border-bottom: 2px solid #454545;
+            margin: 8px auto 0;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+
+        p {
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+        }
+
+        b:first-child {
+            color: darkslategrey;
+        }
+
+        .scrollDown:link {
+            color:black; /* link color*/
+        }
+
+        .scrollDown:visited {
+            color: black; /* click link */
+        }
+        .scrollDown:active {
+            color: cadetblue; /* link active color */
+        }
+
+        @media only screen and (max-width: 970px) {
+            .fullscreen {
+                flex-direction: column;
+
+            }
+            .fullscreen .info{
+                width: 100%;
+                height: 100vh;
+
+            }
+            .fullscreen .forsale {
+                width: 100%;
+                height: 100vh;
+            }
+
+            .fab.fa-facebook{
+                position: unset;
+            }
+            .scrollDown {
+                display: contents;
+            }
+
+
+        }
+
+        @media only screen and (max-width: 700px) {
+            .scrollDown {
+                display: none;
+            }
+            body {
+                font-size: 13px;
+            }
+
+            .form [type=text]{
+                font-size: 12px;
+                width: 240px;
+        }
+        }
+
+    </style>
+</head>
+
+<body>
+    <a href="#" class="fab fa-facebook" aria-hidden="true"></a>
+    <main class="fullscreen">
+        <section class="forsale">
+           <div class="card">
+               <img class src="../img/puppy_maltese.jpg" alt="puppy" width="700" height="400">
+                    <i class="material-icons" style="font-size:200%;color:red;">favorite</i>
+           </div>
+            <div><b>f</b>jklfgk</div>
+        </section>
+    <section class="info">
+        <a class="logo">MEDIA SHARING APP</a>
+            <ol class="list_items">
+                <li>
+                    <div>
+                        Please create a page with two<br>sections. One for the ad, and<br>another for a form.<br>
+                        Place these side by side.
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        Create and style a "for sale"<br>card as seen on the left.
+                    </div>
+                </li>
+                <li>
+                    <div class="form">
+                    <input type="text" id="input_field" name="input" value="Make one input field">
+                    </div>
+                </li>
+                <li>
+                    <div class="button">
+                        <div class="buttonText">And a Cool button</div>
+                </div>
+                </li>
+                <li>
+                    <div>You do NOT need to style the text<br>input field yet and the button<br>
+                    can just be a div.<br>
+                    </div>
+                </li>
+
+            </ol>
+        </section>
+    </div>
+</section>
+
+        <a href="#scrollAnchor" class="scrollDown">See more puppies for sale</a>
+    </main>
+
+    <div id="scrollAnchor"></div>
+
+    <p>Some more footer content here</p>
+    <br>
+    <br>
+    <br>
+    <p><img src="../img/black-lab-lab-puppy-sad-puppy-thumbnail.jpg" alt="puppy" width="320" height="320"></p>
+    <a href="#scrollAnchor" class="scrollDown">mkfdlkfjgdklfjg</a>
+    <br>
+    <br>
+    <br>
+
+
+</body>
+</html>
