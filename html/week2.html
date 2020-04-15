@@ -15,9 +15,8 @@
         .fullscreen {
             display: flex;
             width: 100%;
-            height: 100vh;
+            height: 960px;
             min-height: 600px;
-            max-height: 960px;
             overflow-y: hidden;
         }
 
@@ -64,8 +63,9 @@
             box-sizing: border-box;
         }
 
-        .fullscreen .list_items {
+         .list_items >div {
             margin-bottom: 24px;
+
         }
 
         .fullscreen .forsale {
@@ -74,13 +74,14 @@
             float: left;
             height: 100%;
             width: 50%;
+            justify-content: space-around;
+
 
             /*overflow-y: scroll;*/
         }
 
         .fullscreen .info {
-            display: flex;
-            justify-content: space-evenly;
+            text-align: center;
             flex-flow: column nowrap;
             position: relative;
             float: left;
@@ -137,6 +138,22 @@
             margin-bottom: 15px;
         }
 
+
+       /* li {
+            display: list-item;
+            text-align: match-parent;
+        }*/
+        ol {
+            display: block;
+            list-style-type: decimal;
+            list-style-position: outside;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 40px;
+        }
+
         input {
             line-height: normal;
         }
@@ -166,6 +183,7 @@
             color: gray;
             line-height: 1.6;
             width: 40%;
+
         }
 
             .form [type=text] {
@@ -270,32 +288,25 @@
         @media only screen and (max-width: 970px) {
             .fullscreen {
                 flex-direction: column;
-
+                height: 1880px;
             }
-            .fullscreen .info{
-                width: 100%;
-                height: 100vh;
 
-            }
-            .fullscreen .forsale {
+            .fullscreen .info {
                 width: 100%;
-                height: 100vh;
+                height: 1080px;
+                text-align: center;
             }
 
             .fab.fa-facebook{
                 position: unset;
             }
             .scrollDown {
-                display: contents;
+                display: none;
             }
-
 
         }
 
         @media only screen and (max-width: 700px) {
-            .scrollDown {
-                display: none;
-            }
             body {
                 font-size: 13px;
             }
@@ -324,13 +335,13 @@
             <ol class="list_items">
                 <li>
                     <div>
-                        Please create a page with two<br>sections. One for the ad, and<br>another for a form.<br>
+                        Please create a page with two sections. One for the ad, and another for a form.
                         Place these side by side.
                     </div>
                 </li>
                 <li>
                     <div>
-                        Create and style a "for sale"<br>card as seen on the left.
+                        Create and style a "for sale" card as seen on the left.
                     </div>
                 </li>
                 <li>
@@ -344,7 +355,7 @@
                 </div>
                 </li>
                 <li>
-                    <div>You do NOT need to style the text<br>input field yet and the button<br>
+                    <div>You do NOT need to style the text input field yet and the button
                     can just be a div.<br>
                     </div>
                 </li>

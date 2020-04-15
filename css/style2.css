@@ -145,7 +145,7 @@ input {
     line-height: normal;
 }
 
-.list_items{
+.ol.list_items{
     margin: 10%;
     padding: 20%;
     list-style-type: decimal;
@@ -180,7 +180,7 @@ input {
 }
 
 /* for touch */
-a:active, a:hover {
+.a:active, .a:hover {
     outline: 0;
 }
 
@@ -214,11 +214,11 @@ a:active, a:hover {
     font-family: "Font Awesome 5 Brands",serif;
 }
 
-fa-facebook:before {
+.fa-facebook:before {
     content: "\f09a";
 }
 
-fullscreen .scrollDown {
+.fullscreen .scrollDown {
     position: absolute;
     z-index: 20;
     left: 0;
@@ -243,7 +243,7 @@ fullscreen .scrollDown {
     transform: rotate(-45deg);
 }
 
-p {
+.p {
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
